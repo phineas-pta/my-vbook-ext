@@ -1,0 +1,21 @@
+name: Build extensions
+
+on:
+  release:
+    types:
+    - published
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: |
+          cd tts-openai; zip -r ../tts-openai.zip *; cd -
+      - uses: softprops/action-gh-release@v3
+        with:
+          files: |
+            tts-openai.zip
