@@ -25,6 +25,7 @@ ví dụ pc ko có gpu
 {
 	"host": "0.0.0.0",
 	"port": 5000,
+	"backend": "cpu",
 	"max_loaded_models": 1,
 	"cors_origins": "*",
 	"models": [
@@ -209,6 +210,35 @@ np.savetxt("ref_codes.txt", codes, fmt="%d", encoding="utf-8")
 
 sửa file `config.json` thêm đường dẫn tới 2 file `speaker.emb.txt` và `ref_codes.txt`
 
+list 25 giọng có sẵn trong VieNeu v3
+| giọng         | sex | miền  | phong cách |
+|---------------|-----|-------|------------|
+| Adam bựa      | Nam | Bắc   | tự nhiên   |
+| Adam          | Nam | Nam   | tự nhiên   |
+| Anh Khôi      | Nam | Bắc   | kể chuyện  |
+| Kim Thanh     | Nữ  | Nam   | đọc truyện |
+| Mai Anh       | Nữ  | Bắc   | tin tức    |
+| Minh Quân Pro | Nam | Bắc   | tự nhiên   |
+| Minh Triết    | Nam | Nam   | tin tức    |
+| Minh Đức      | Nam | Bắc   | tin tức    |
+| Mạnh Dũng     | Nam | Bắc   | tự nhiên   |
+| Mỹ Duyên      | Nữ  | Nam   | đọc truyện |
+| Ngọc Huyền    | Nữ  | Bắc   | tự nhiên   |
+| Ngọc Linh     | Nữ  | Bắc   | kể chuyện  |
+| Ngọc Trân     | Nữ  | Trung | tự nhiên   |
+| Phạm Tuyên    | Nam | Bắc   | tự nhiên   |
+| Quang Sơn     | Nam | Trung | tự nhiên   |
+| Quỳnh Anh     | Nữ  | Bắc   | đọc truyện |
+| Thanh Bình    | Nam | Bắc   | kể chuyện  |
+| Thiền Tâm Đức | Nam | Bắc   | kể chuyện  |
+| Thái Sơn      | Nam | Nam   | kể chuyện  |
+| Thùy Dung     | Nữ  | Nam   | tin tức    |
+| Thục Đoan     | Nữ  | Nam   | kể chuyện  |
+| Trúc Ly       | Nữ  | Bắc   | tự nhiên   |
+| Xuân Vĩnh     | Nam | Bắc   | tự nhiên   |
+| Đoan Trang    | Nữ  | Bắc   | tự nhiên   |
+| Đức Trí       | Nam | Nam   | đọc truyện |
+
 </details>
 
 <details name="matching-name">
@@ -267,6 +297,7 @@ ví dụ pc ko có gpu chạy giọng Thanh Phương Viettel
 {
 	"host": "0.0.0.0",
 	"port": 5000,
+	"backend": "cpu",
 	"max_loaded_models": 1,
 	"cors_origins": "*",
 	"models": [
