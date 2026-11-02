@@ -6,9 +6,9 @@ tải `audio.cpp` về từ: https://github.com/0xShug0/audio.cpp/releases/lates
 
 chuẩn bị model và khởi tạo file `config.json`:
 
-<details name="matching-name" style="margin-top: 2rem; outline-width: thin; outline-style: dashed;">
+<details name="matching-name">
 
-<summary>VieNeu TTS: nhanh + nhẹ + nhiều giọng (có tính năng clone voice nhưng setup quá phức tạp)</summary>
+<summary>VieNeu TTS: nhanh + nhẹ + nhiều giọng (có tính năng clone voice nhưng setup hơi phức tạp)</summary>
 
 tải file gguf: https://huggingface.co/pnnbao-ump/VieNeu-TTS-v3-Turbo/blob/main/gguf/vieneu-v3-turbo-q8_0.gguf
 
@@ -192,16 +192,17 @@ ví dụ pc ko có gpu
 		"vieneu_v3_turbo.g2p_library": "sea_g2p_rs-windows-x86_64.dll",
 		"vieneu_v3_turbo.g2p_dict_file": "sea_g2p.bin"
 	}
+}
 ```
 
-để clone giọng: cần biết sử dụng python: `pip install vieneu`
+để clone voice: cần biết sử dụng python: cài `pip install vieneu` rồi chạy:
 
 ```python
 import numpy as np
 from vieneu._v3_turbo_engine import VieNeuTTSv3Turbo
 tts = VieNeuTTSv3Turbo()
 
-spk, codes = tts.prepare_reference("rZnygcVV3vI.wav")
+spk, codes = tts.prepare_reference("rZnygcVV3vI.wav") # file audio cần clone voice
 np.savetxt("speaker.emb.txt", spk, fmt="%.8f", newline=",", encoding="utf-8")
 np.savetxt("ref_codes.txt", codes, fmt="%d", encoding="utf-8")
 ```
@@ -210,7 +211,7 @@ sửa file `config.json` thêm đường dẫn tới 2 file `speaker.emb.txt` v�
 
 </details>
 
-<details name="matching-name" style="margin-top: 2rem; outline-width: thin; outline-style: dashed;">
+<details name="matching-name">
 
 <summary>OmniVoice: nặng hơn + có clone voice dễ setup hơn (lỗi ko đọc dc chữ số)</summary>
 
@@ -245,11 +246,12 @@ ví dụ pc có gpu nvidia clone voice Nguyễn Ngọc Ngạn
 	"default_session_options": {
 		"omnivoice.perf_mode": "flash_attention"
 	}
+}
 ```
 
 </details>
 
-<details name="matching-name" style="margin-top: 2rem; outline-width: thin; outline-style: dashed;">
+<details name="matching-name">
 
 <summary>Piper: nhẹ nhất nhưng ko có clone voice</summary>
 
@@ -279,6 +281,7 @@ ví dụ pc ko có gpu chạy giọng Thanh Phương Viettel
 		"piper_tts.espeak_library_path": "C:/Program Files/eSpeak NG/libespeak-ng.dll",
 		"piper_tts.espeak_data_path": "C:/Program Files/eSpeak NG/espeak-ng-data"
 	}
+}
 ```
 
 </details>
@@ -287,3 +290,8 @@ khởi chạy: `audiocpp_server.exe --config config.json`
 
 lấy ip của pc trong mạng wifi nội bộ: `arp -a`<br />
 (trên linux/mac có thể cần phải cài thêm kiểu ví dụ `apt-get install net-tools`)
+
+trong vBook, phần cài đặt của extension:
+- điền vào mục url theo dạng: `http://192.168.█.█:5000/v1`
+- điền gì vào api key cũng dc
+- điền tên model theo `id` trong file `config.json` ở trên
