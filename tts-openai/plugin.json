@@ -15,16 +15,22 @@
 		"preload_size": 5,
 		"preload_parallel": true,
 		"OPENAI_API_URL": {
-			"title": "API endpoint URL (phải kết thúc với 'v1')",
+			"title": "API endpoint URL (phải kết thúc với đuôi 'v1')",
 			"mode": "input",
 			"format": "text",
 			"default": "https://api.openai.com/v1"
 		},
 		"OPENAI_API_KEY": {
-			"title": "API Key",
+			"title": "API key",
 			"mode": "input",
 			"format": "text",
 			"default": "sk-EMPTY"
+		},
+		"OPENAI_API_MODEL": {
+			"title": "TTS model",
+			"mode": "input",
+			"format": "text",
+			"default": "gpt-4o-mini-tts"
 		}
 	}
 }

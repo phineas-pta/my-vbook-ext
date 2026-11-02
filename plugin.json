@@ -1,0 +1,18 @@
+{
+	"metadata": {
+		"author": "phineas-pta",
+		"description": "1 số extensions cá nhân dùng cho app đọc sách vBook"
+	},
+	"data": [
+		{
+			"path": "https://github.com/phineas-pta/my-vbook-ext/releases/latest/download/tts-openai.zip",
+			"icon": "https://raw.githubusercontent.com/phineas-pta/my-vbook-ext/main/tts-openai/icon.png",
+			"name": "OpenAI TTS",
+			"author": "phineas-pta",
+			"version": 1,
+			"source": "https://github.com/phineas-pta/my-vbook-ext",
+			"description": "Nghe truyện bằng TTS dùng API kiểu OpenAI",
+			"type": "tts"
+		}
+	]
+}
