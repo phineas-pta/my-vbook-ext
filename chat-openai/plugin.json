@@ -1,0 +1,35 @@
+{
+	"metadata": {
+		"name": "OpenAI-like chat",
+		"author": "phineas-pta",
+		"version": 1,
+		"source": "https://github.com/phineas-pta/my-vbook-ext/tree/main/chat-openai",
+		"description": "Trợ lý AI dùng API kiểu OpenAI",
+		"type": "ai",
+		"locale": "global"
+	},
+	"script": {
+		"chatStream": "chat_stream.js"
+	},
+	"config": {
+		"OPENAI_API_URL": {
+			"title": "API endpoint URL (phải kết thúc với đuôi 'v1')",
+			"mode": "input",
+			"format": "text",
+			"default": "https://api.openai.com/v1"
+		},
+		"OPENAI_API_KEY": {
+			"title": "API key",
+			"mode": "input",
+			"format": "text",
+			"default": "sk-EMPTY"
+		},
+		"OPENAI_API_MODEL": {
+			"title": "TTS model",
+			"mode": "input",
+			"format": "text",
+			"default": "gpt-6.1-sol"
+		},
+		"support_url": "https://github.com/phineas-pta/my-vbook-ext"
+	}
+}

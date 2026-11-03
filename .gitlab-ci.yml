@@ -11,10 +11,11 @@ create_zip:
     - apk add --no-cache zip curl
   script:
     - |
-      cd tts-openai
-      zip -r ../tts-openai.zip plugin.json icon.png src/
-      url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/releases/${CI_COMMIT_TAG}/tts-openai.zip"
-      curl --fail --show-error --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file tts-openai.zip "${url}"
+      for folder in smartypants pta-cleanup; do
+        cd ${folder}; zip -r "../${folder}.zip" plugin.json icon.png src/; cd -
+        url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/releases/${CI_COMMIT_TAG}/${folder}.zip"
+        curl --fail --show-error --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file "${folder}.zip" "${url}"
+      done
   artifacts:
     paths:
       - "*.zip"
@@ -30,10 +31,12 @@ publish_release:
     - if: $CI_COMMIT_TAG
   script:
     - |
-      file="tts-openai.zip"
-      url="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/releases/${CI_COMMIT_TAG}/${file}"
+      file1="tts-openai.zip"
+      file2="chat-openai.zip"
+      url1="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/releases/${CI_COMMIT_TAG}/${file1}"
+      url2="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/releases/${CI_COMMIT_TAG}/${file2}"
 
       glab release create "$CI_COMMIT_TAG" \
         --name "Release ${CI_COMMIT_TAG}" \
         --notes "Release ${CI_COMMIT_TAG}" \
-        --assets-links "[{\"name\":\"${file}\",\"url\":\"${url}\",\"link_type\":\"package\"}]"
+        --assets-links "[{\"name\":\"${file1}\",\"url\":\"${url1}\",\"link_type\":\"package\"},{\"name\":\"${file2}\",\"url\":\"${url2}\",\"link_type\":\"package\"}]"

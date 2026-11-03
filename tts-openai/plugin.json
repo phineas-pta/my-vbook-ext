@@ -5,7 +5,8 @@
 		"version": 2,
 		"source": "https://github.com/phineas-pta/my-vbook-ext/tree/main/tts-openai",
 		"description": "Nghe truyện bằng TTS dùng API kiểu OpenAI",
-		"type": "tts"
+		"type": "tts",
+		"locale": "global"
 	},
 	"script": {
 		"voice": "voice.js",
@@ -32,6 +33,7 @@
 			"mode": "input",
 			"format": "text",
 			"default": "gpt-realtime-2.1-mini"
-		}
+		},
+		"support_url": "https://github.com/phineas-pta/my-vbook-ext"
 	}
 }

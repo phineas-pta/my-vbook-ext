@@ -13,6 +13,16 @@
 			"source": "https://github.com/phineas-pta/my-vbook-ext/tree/main/tts-openai",
 			"description": "Nghe truyện bằng TTS dùng API kiểu OpenAI",
 			"type": "tts"
+		},
+		{
+			"path": "https://github.com/phineas-pta/my-vbook-ext/releases/latest/download/chat-openai.zip",
+			"icon": "https://raw.githubusercontent.com/phineas-pta/my-vbook-ext/main/chat-openai/icon.png",
+			"name": "OpenAI-like chat",
+			"author": "phineas-pta",
+			"version": 1,
+			"source": "https://github.com/phineas-pta/my-vbook-ext/tree/main/chat-openai",
+			"description": "Nghe truyện bằng TTS dùng API kiểu OpenAI",
+			"type": "tts"
 		}
 	]
 }
