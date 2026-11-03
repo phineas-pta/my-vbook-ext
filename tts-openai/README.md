@@ -3,6 +3,9 @@
 có thể chạy local trên pc (ko cần gpu) trong cùng mạng wifi nội bộ: chạy tts trên pc, phát audio trên đt, ko sợ đt nóng máy + hao pin
 
 tải `audio.cpp` về từ: https://github.com/0xShug0/audio.cpp/releases/latest
+- card nvidia: chọn `cuda` (tải kèm thêm `cudart` nếu chưa cài CUDA vào hệ thống)
+- card amd hoặc cpu đời mới: chọn `vulkan`
+- cpu đời cũ: chọn `cpu`
 
 chuẩn bị model và khởi tạo file `config.json`:
 
@@ -34,153 +37,152 @@ ví dụ pc ko có gpu
 			"family": "vieneu_v3_turbo",
 			"path": "vieneu-v3-turbo-q8_0.gguf",
 			"task": "tts",
-			"default_voice_preset": "minh_quan_pro",
 			"voice_presets": {
-				"adam": {
+				"Adam - Nam miền Nam - giọng tự nhiên": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/adam/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/adam/speaker.emb.txt"
 					}
 				},
-				"adam_bua": {
+				"Adam bựa - Nam miền Bắc - giọng tự nhiên": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/adam_bua/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/adam_bua/speaker.emb.txt"
 					}
 				},
-				"anh_khoi": {
+				"Anh Khôi - Nam miền Bắc - giọng kể chuyện": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/anh_khoi/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/anh_khoi/speaker.emb.txt"
 					}
 				},
-				"doan_trang": {
+				"Đoan Trang - Nữ miền Bắc - giọng tự nhiên": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/doan_trang/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/doan_trang/speaker.emb.txt"
 					}
 				},
-				"duc_tri": {
+				"Đức Trí - Nam miền Nam - giọng đọc truyện": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/duc_tri/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/duc_tri/speaker.emb.txt"
 					}
 				},
-				"kim_thanh": {
+				"Kim Thanh - Nữ miền Nam - giọng đọc truyện": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/kim_thanh/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/kim_thanh/speaker.emb.txt"
 					}
 				},
-				"mai_anh": {
+				"Mai Anh - Nữ miền Bắc - giọng tin tức": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/mai_anh/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/mai_anh/speaker.emb.txt"
 					}
 				},
-				"manh_dung": {
+				"Mạnh Dũng - Nam miền Bắc - giọng tự nhiên": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/manh_dung/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/manh_dung/speaker.emb.txt"
 					}
 				},
-				"minh_duc": {
+				"Minh Đức - Nam miền Bắc - giọng tin tức": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/minh_duc/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/minh_duc/speaker.emb.txt"
 					}
 				},
-				"minh_quan_pro": {
+				"Minh Quân Pro - Nam miền Bắc - giọng tự nhiên": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/minh_quan_pro/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/minh_quan_pro/speaker.emb.txt"
 					}
 				},
-				"minh_triet": {
+				"Minh Triết - Nam miền Nam - giọng tin tức": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/minh_triet/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/minh_triet/speaker.emb.txt"
 					}
 				},
-				"my_duyen": {
+				"Mỹ Duyên - Nữ miền Nam - giọng đọc truyện": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/my_duyen/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/my_duyen/speaker.emb.txt"
 					}
 				},
-				"ngoc_huyen": {
+				"Ngọc Huyền - Nữ miền Bắc - giọng tự nhiên": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/ngoc_huyen/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/ngoc_huyen/speaker.emb.txt"
 					}
 				},
-				"ngoc_linh": {
+				"Ngọc Linh - Nữ miền Bắc - giọng kể chuyện": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/ngoc_linh/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/ngoc_linh/speaker.emb.txt"
 					}
 				},
-				"ngoc_tran": {
+				"Ngọc Trân - Nữ miền Trung - giọng tự nhiên": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/ngoc_tran/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/ngoc_tran/speaker.emb.txt"
 					}
 				},
-				"pham_tuyen": {
+				"Phạm Tuyên - Nam miền Bắc - giọng tự nhiên": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/pham_tuyen/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/pham_tuyen/speaker.emb.txt"
 					}
 				},
-				"quang_son": {
+				"Quang Sơn - Nam miền Trung - giọng tự nhiên": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/quang_son/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/quang_son/speaker.emb.txt"
 					}
 				},
-				"quynh_anh": {
+				"Quỳnh Anh - Nữ miền Bắc - giọng đọc truyện": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/quynh_anh/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/quynh_anh/speaker.emb.txt"
 					}
 				},
-				"thai_son": {
+				"Thái Sơn - Nam miền Nam - giọng kể chuyện": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/thai_son/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/thai_son/speaker.emb.txt"
 					}
 				},
-				"thanh_binh": {
+				"Thanh Bình - Nam miền Bắc - giọng kể chuyện": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/thanh_binh/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/thanh_binh/speaker.emb.txt"
 					}
 				},
-				"thien_tam_duc": {
+				"Thiền Tâm Đức - Nam miền Bắc - giọng kể chuyện": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/thien_tam_duc/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/thien_tam_duc/speaker.emb.txt"
 					}
 				},
-				"thuc_doan": {
+				"Thục Đoan - Nữ miền Nam - giọng kể chuyện": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/thuc_doan/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/thuc_doan/speaker.emb.txt"
 					}
 				},
-				"thuy_dung": {
+				"Thùy Dung - Nữ miền Nam - giọng tin tức": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/thuy_dung/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/thuy_dung/speaker.emb.txt"
 					}
 				},
-				"truc_ly": {
+				"Trúc Ly - Nữ miền Bắc - giọng tự nhiên": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/truc_ly/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/truc_ly/speaker.emb.txt"
 					}
 				},
-				"xuan_vinh": {
+				"Xuân Vĩnh - Nam miền Bắc - giọng tự nhiên": {
 					"options": {
 						"reference_codes_file": "vieneu_voices/xuan_vinh/ref_codes.txt",
 						"speaker_embedding_file": "vieneu_voices/xuan_vinh/speaker.emb.txt"
@@ -210,35 +212,6 @@ np.savetxt("ref_codes.txt", codes, fmt="%d", encoding="utf-8")
 
 sửa file `config.json` thêm đường dẫn tới 2 file `speaker.emb.txt` và `ref_codes.txt`
 
-list 25 giọng có sẵn trong VieNeu v3
-| giọng         | sex | miền  | phong cách |
-|---------------|-----|-------|------------|
-| Adam bựa      | Nam | Bắc   | tự nhiên   |
-| Adam          | Nam | Nam   | tự nhiên   |
-| Anh Khôi      | Nam | Bắc   | kể chuyện  |
-| Kim Thanh     | Nữ  | Nam   | đọc truyện |
-| Mai Anh       | Nữ  | Bắc   | tin tức    |
-| Minh Quân Pro | Nam | Bắc   | tự nhiên   |
-| Minh Triết    | Nam | Nam   | tin tức    |
-| Minh Đức      | Nam | Bắc   | tin tức    |
-| Mạnh Dũng     | Nam | Bắc   | tự nhiên   |
-| Mỹ Duyên      | Nữ  | Nam   | đọc truyện |
-| Ngọc Huyền    | Nữ  | Bắc   | tự nhiên   |
-| Ngọc Linh     | Nữ  | Bắc   | kể chuyện  |
-| Ngọc Trân     | Nữ  | Trung | tự nhiên   |
-| Phạm Tuyên    | Nam | Bắc   | tự nhiên   |
-| Quang Sơn     | Nam | Trung | tự nhiên   |
-| Quỳnh Anh     | Nữ  | Bắc   | đọc truyện |
-| Thanh Bình    | Nam | Bắc   | kể chuyện  |
-| Thiền Tâm Đức | Nam | Bắc   | kể chuyện  |
-| Thái Sơn      | Nam | Nam   | kể chuyện  |
-| Thùy Dung     | Nữ  | Nam   | tin tức    |
-| Thục Đoan     | Nữ  | Nam   | kể chuyện  |
-| Trúc Ly       | Nữ  | Bắc   | tự nhiên   |
-| Xuân Vĩnh     | Nam | Bắc   | tự nhiên   |
-| Đoan Trang    | Nữ  | Bắc   | tự nhiên   |
-| Đức Trí       | Nam | Nam   | đọc truyện |
-
 </details>
 
 <details name="matching-name">
@@ -264,7 +237,6 @@ ví dụ pc có gpu nvidia clone voice Nguyễn Ngọc Ngạn
 			"family": "omnivoice",
 			"path": "KhanhTTS-OmniVoice-q8_0.gguf",
 			"task": "tts",
-			"default_voice_preset": "ngocngan3701",
 			"voice_presets": {
 				"ngocngan3701": {
 					"voice_ref": "rZnygcVV3vI.wav",
@@ -286,6 +258,17 @@ ví dụ pc có gpu nvidia clone voice Nguyễn Ngọc Ngạn
 <summary>Piper: nhẹ nhất nhưng ko có clone voice</summary>
 
 **file gguf đang bị lỗi chưa dùng dc**
+
+giải pháp tạm thời cho dân coder python:
+- tải file onnx gốc từ NghiTTS: https://github.com/nghimestudio/nghitts (mục Models > link google drive)
+- cài: `pip install fastapi uvicorn piper-tts vietnormalizer`
+  - card nvidia: `pip uninstall -y onnxruntime; pip install "onnxruntime-gpu[cuda,cudnn]"`
+  - card amd (linux only): tải `onnxruntime-migraphx` từ https://repo.radeon.com/rocm/manylinux/
+  - intel openvino: `pip uninstall -y onnxruntime; pip install openvino==2025.4.1 onnxruntime-openvino`
+- code FastAPI để giả lập OpenAI: [`pipertts_openai.py`](pipertts_openai.py)
+- chạy: `python pipertts_openai.py --host 0.0.0.0 --allow-cors --onnx ngocngan3701.onnx`
+
+**nhắc lại lần nữa: file gguf dưới đây đang bị lỗi chưa dùng dc**
 
 tải file gguf (mỗi model là 1 giọng riêng): https://huggingface.co/doof-ferb/nghitts-copy/tree/main/gguf
 
@@ -326,3 +309,6 @@ trong vBook, phần cài đặt của extension:
 - điền vào mục url theo dạng: `http://192.168.█.█:5000/v1`
 - điền gì vào api key cũng dc
 - điền tên model theo `id` trong file `config.json` ở trên
+
+nếu audio quá chậm thì giảm độ dài tối đa xuống dưới 300
+![](https://github.com/user-attachments/assets/f1378f47-f7a9-4559-8d82-4afda9a245d1)

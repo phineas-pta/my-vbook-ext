@@ -7,10 +7,10 @@
 		{
 			"path": "https://github.com/phineas-pta/my-vbook-ext/releases/latest/download/tts-openai.zip",
 			"icon": "https://raw.githubusercontent.com/phineas-pta/my-vbook-ext/main/tts-openai/icon.png",
-			"name": "OpenAI TTS",
+			"name": "OpenAI-like TTS",
 			"author": "phineas-pta",
-			"version": 1,
-			"source": "https://github.com/phineas-pta/my-vbook-ext",
+			"version": 2,
+			"source": "https://github.com/phineas-pta/my-vbook-ext/tree/main/tts-openai",
 			"description": "Nghe truyện bằng TTS dùng API kiểu OpenAI",
 			"type": "tts"
 		}

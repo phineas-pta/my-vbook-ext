@@ -1,9 +1,9 @@
 {
 	"metadata": {
-		"name": "OpenAI TTS",
+		"name": "OpenAI-like TTS",
 		"author": "phineas-pta",
-		"version": 1,
-		"source": "https://github.com/phineas-pta/my-vbook-ext",
+		"version": 2,
+		"source": "https://github.com/phineas-pta/my-vbook-ext/tree/main/tts-openai",
 		"description": "Nghe truyện bằng TTS dùng API kiểu OpenAI",
 		"type": "tts"
 	},
@@ -12,7 +12,7 @@
 		"tts": "tts.js"
 	},
 	"config": {
-		"preload_size": 5,
+		"preload_size": 3,
 		"preload_parallel": true,
 		"max_length": 1000,
 		"OPENAI_API_URL": {
