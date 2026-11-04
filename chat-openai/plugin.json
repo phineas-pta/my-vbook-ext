@@ -3,8 +3,7 @@
 		"name": "OpenAI-like chat",
 		"author": "phineas-pta",
 		"version": 1,
-		"source": "https://github.com/phineas-pta/my-vbook-ext/tree/main/chat-openai",
-		"description": "Trợ lý AI dùng API kiểu OpenAI",
+		"description": "OpenAI assistant (support selfhost)",
 		"type": "ai",
 		"locale": "global"
 	},
@@ -30,6 +29,40 @@
 			"format": "text",
 			"default": "gpt-6.1-sol"
 		},
-		"support_url": "https://github.com/phineas-pta/my-vbook-ext"
+		"OPENAI_API_reasoning_effort": {
+			"title": "Reasoning effort",
+			"mode": "select",
+			"format": "single",
+			"values": ["none", "minimal", "low", "medium", "high", "xhigh", "max"],
+			"default": "medium"
+		},
+		"OPENAI_API_temperature": {
+			"title": "Sampling: temperature",
+			"subtitle": "0.0 → 2.0: lower = more deterministic, higher = more random",
+			"mode": "input",
+			"format": "number",
+			"default": "1.0"
+		},
+		"OPENAI_API_top_p": {
+			"title": "Sampling: top P",
+			"subtitle": "0.0 → 1.0: for example 0.1 = output sampled only from the top 10% probability tokens",
+			"mode": "input",
+			"format": "number",
+			"default": "1.0"
+		},
+		"OPENAI_API_frequency_penalty": {
+			"title": "Frequency penalty",
+			"subtitle": "-2.0 → 2.0: higher = prevent repetition = reduction if the token has appeared has appeared multiple times",
+			"mode": "input",
+			"format": "number",
+			"default": "0.0"
+		},
+		"OPENAI_API_presence_penalty": {
+			"title": "Presence penalty",
+			"subtitle": "-2.0 → 2.0: higher = newer things = reduction if the token has appeared at least once before",
+			"mode": "input",
+			"format": "number",
+			"default": "0.0"
+		}
 	}
 }

@@ -1,7 +1,7 @@
 {
 	"metadata": {
 		"author": "phineas-pta",
-		"description": "1 số extensions cá nhân dùng cho app đọc sách vBook"
+		"description": "https://github.com/phineas-pta/my-vbook-ext"
 	},
 	"data": [
 		{
@@ -10,8 +10,7 @@
 			"name": "OpenAI-like TTS",
 			"author": "phineas-pta",
 			"version": 2,
-			"source": "https://github.com/phineas-pta/my-vbook-ext/tree/main/tts-openai",
-			"description": "Nghe truyện bằng TTS dùng API kiểu OpenAI",
+			"description": "OpenAI TTS (support selfhost)",
 			"type": "tts"
 		},
 		{
@@ -20,8 +19,7 @@
 			"name": "OpenAI-like chat",
 			"author": "phineas-pta",
 			"version": 1,
-			"source": "https://github.com/phineas-pta/my-vbook-ext/tree/main/chat-openai",
-			"description": "Nghe truyện bằng TTS dùng API kiểu OpenAI",
+			"description": "OpenAI assistant (support selfhost)",
 			"type": "tts"
 		}
 	]
