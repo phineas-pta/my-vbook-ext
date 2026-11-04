@@ -36,8 +36,9 @@ dịch = OpenAI-compatible API endpoints: 👉 https://github.com/Moleys/vbook-e
 hướng dẫn viết extensions + hàng mẫu:
 - https://github.com/Darkrai9x/vbook-extensions/blob/master/extension-api.md
 - https://github.com/dat-bi/ext-vbook/tree/main/vbook-tool/context
+- dùng Rhino JS engine nên chỉ viết pure JS ko dc cài thêm node packages
 
-1 số OpenAI-compatible API endpoints
+1 số OpenAI-compatible API endpoints (chỉ có selfhost là free + uncensored)
 - OpenAI: `https://api.openai.com/v1`
 - Claude: `https://api.anthropic.com/v1`
 - Gemini: `https://generativelanguage.googleapis.com/v1beta/openai`
@@ -45,6 +46,8 @@ hướng dẫn viết extensions + hàng mẫu:
 - Grok: `https://api.x.ai/v1`
 - Qwen: `https://ap-southeast-1.maas.qwencloudapi.com/compatible-mode/v1`
 - Muse: `https://api.meta.ai/v1`
+- GLM: `https://api.z.ai/api/paas/v4`
+- Kimi: `https://api.moonshot.ai/v1`
 - Mistral: `https://api.mistral.ai/v1`
 
 nguồn icon copy từ:
