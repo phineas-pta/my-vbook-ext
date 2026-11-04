@@ -16,7 +16,7 @@
 		{
 			"path": "https://github.com/phineas-pta/my-vbook-ext/releases/latest/download/chat-openai.zip",
 			"icon": "https://raw.githubusercontent.com/phineas-pta/my-vbook-ext/main/chat-openai/icon.png",
-			"name": "OpenAI-like chat",
+			"name": "OpenAI-like assistant",
 			"author": "phineas-pta",
 			"version": 1,
 			"description": "OpenAI assistant (support selfhost)",

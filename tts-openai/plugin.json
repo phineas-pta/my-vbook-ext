@@ -16,7 +16,7 @@
 		"preload_parallel": true,
 		"max_length": 1000,
 		"OPENAI_API_URL": {
-			"title": "API endpoint URL (phải kết thúc với đuôi 'v1')",
+			"title": "API endpoint URL (thường sẽ kết thúc với đuôi 'v1')",
 			"mode": "input",
 			"format": "text",
 			"default": "https://api.openai.com/v1"
