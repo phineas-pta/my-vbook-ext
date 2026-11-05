@@ -11,7 +11,9 @@
 			"author": "phineas-pta",
 			"version": 2,
 			"description": "OpenAI TTS (support selfhost)",
-			"type": "tts"
+			"source": "https://example.com",
+			"type": "tts",
+			"locale": "global"
 		},
 		{
 			"path": "https://github.com/phineas-pta/my-vbook-ext/releases/latest/download/chat-openai.zip",
@@ -20,7 +22,9 @@
 			"author": "phineas-pta",
 			"version": 1,
 			"description": "OpenAI assistant (support selfhost)",
-			"type": "tts"
+			"source": "https://example.com",
+			"type": "ai",
+			"locale": "global"
 		}
 	]
 }

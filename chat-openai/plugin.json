@@ -4,6 +4,7 @@
 		"author": "phineas-pta",
 		"version": 1,
 		"description": "OpenAI assistant (support selfhost)",
+		"source": "https://example.com",
 		"type": "ai",
 		"locale": "global"
 	},
@@ -63,6 +64,11 @@
 			"mode": "input",
 			"format": "number",
 			"default": "0.0"
+		},
+		"OPENAI_API_DEBUGGING": {
+			"title": "Show debugging logs",
+			"mode": "toggle",
+			"default": "false"
 		}
 	}
 }

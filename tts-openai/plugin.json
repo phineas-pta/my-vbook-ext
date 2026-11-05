@@ -4,6 +4,7 @@
 		"author": "phineas-pta",
 		"version": 2,
 		"description": "OpenAI TTS (support selfhost)",
+		"source": "https://example.com",
 		"type": "tts",
 		"locale": "global"
 	},
