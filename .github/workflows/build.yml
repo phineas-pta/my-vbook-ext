@@ -19,4 +19,5 @@ jobs:
           done
       - uses: softprops/action-gh-release@v3
         with:
-          files: \*.zip
+          files: |
+            *.zip
