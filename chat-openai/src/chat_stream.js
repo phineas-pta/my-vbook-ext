@@ -1,36 +1,42 @@
+/**
+ * A.I. assistant request
+ * @param {string} messagesJson
+ * @param {string} selectedModel
+ * @returns {undefined} nothing returned because text is streamed
+ */
 function execute(messagesJson, selectedModel) {
-	// https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create
 	let messages_array = JSON.parse(messagesJson);
 	let res = send_req(messages_array, selectedModel);
-	if (!res.ok) return Response.error("error in chat_stream.js: HTTP " + res.status);
+	if (!res.ok) return Response.error("error in chat_stream.js: HTTP " + res.status); // TODO: also check for subsequent call
 
-	// https://developers.openai.com/api/docs/guides/function-calling?api-mode=chat
 	let tools = stream_resp(res);
-
-	if (tools.length > 0) {
+	while (tools.length > 0) {
 		messages_array.push({
 			role: "assistant",
-			content: "",
 			tool_calls: tools,
 		});
 
 		for (let call of tools) {
-			let yolo = ai.executeTool(call.function.name, JSON.parse(call.function.arguments));
 			messages_array.push({
 				role: "tool",
 				tool_call_id: call.id,
-				content: JSON.stringify(yolo), // TODO unknown error in vbook
+				content: JSON.stringify(ai.executeTool(call.function.name, JSON.parse(call.function.arguments))),
 			});
 		}
 
-		if (OPENAI_API_DEBUGGING === "true")
-			ai.emitToken(JSON.stringify(messages_array));
-		stream_resp(send_req(messages_array, selectedModel));
+		tools = stream_resp(send_req(messages_array, selectedModel));
 	}
 
-	return Response.success("finished request");
+	return Response.success("");
 }
 
+/**
+ * send 1 request
+ * @see https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create
+ * @param {{role: String, content: String}[]} messages
+ * @param {string} model
+ * @returns {Response} not Promise because of runtime
+ */
 function send_req(messages, model) {
 	const TOOLS_LIST = ai.getToolList().map((x) => ({
 		type: "function",
@@ -64,6 +70,12 @@ function send_req(messages, model) {
 	});
 }
 
+/**
+ * stream 1 response & collect tool calls trace
+ * @see https://developers.openai.com/api/docs/guides/function-calling?api-mode=chat
+ * @param {Response} resp
+ * @returns {{index: String, id: String, type: String, function: {name: String, arguments: String}}[]} tool calls trace
+ */
 function stream_resp(resp) {
 	let tool_calls_map = {}, line;
 	while ((line = resp.readLine()) !== null) {
@@ -80,8 +92,7 @@ function stream_resp(resp) {
 		}
 		if (delta.reasoning_content) {
 			ai.emitStatus(JSON.stringify({ type: "thinking" }));
-			if (OPENAI_API_DEBUGGING === "true")
-				ai.emitToken(delta.reasoning_content);
+			// ai.emitToken(delta.reasoning_content); // DO NOT DO THIS because it modifies messages array
 		}
 		if (delta.tool_calls) {
 			ai.emitStatus(JSON.stringify({ type: "tool_call" }));

@@ -1,3 +1,7 @@
+/**
+ * get voices list + languages
+ * @returns {{id: String, name: String, language: String}[]}
+ */
 function execute() {
 	let res = fetch(OPENAI_API_URL + "/audio/voices", {
 		method: "GET",

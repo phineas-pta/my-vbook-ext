@@ -9,6 +9,8 @@ dễ setup nhất và tương thích phần cứng tốt nhất là định dạ
 
 kiếm file gguf trên https://huggingface.co/ 👉 kiếm file quant Q4-Q5-Q6-Q7-Q8 tuỳ cấu hình (dưới Q4 model sẽ ngu đi trừ phi model siêu khủng)
 
+*ghi chú*: Gemma 4 hay bị lỗi với tools calling do chat template có format hơi dị, nên ưu tiên dùng Qwen 3.x
+
 trình chạy file gguf:
 - llama.cpp: hơi khó dùng cho tay mơ, độ tinh chỉnh cao để đạt tốc độ tốt nhất
   - link tải: https://github.com/ggml-org/llama.cpp/releases/latest

@@ -20,7 +20,7 @@
 			"icon": "https://raw.githubusercontent.com/phineas-pta/my-vbook-ext/main/chat-openai/icon.png",
 			"name": "OpenAI-like assistant",
 			"author": "phineas-pta",
-			"version": 1,
+			"version": 2,
 			"description": "OpenAI assistant (support selfhost)",
 			"source": "https://example.com",
 			"type": "ai",

@@ -1,3 +1,9 @@
+/**
+ * voice synthesis
+ * @param {string} text
+ * @param {string} voiceId
+ * @returns {string} base64-encoded wav
+ */
 function execute(text, voiceId) {
 	// docs: https://developers.openai.com/api/reference/resources/audio/subresources/speech/methods/create
 	let res = fetch(OPENAI_API_URL + "/audio/speech", {

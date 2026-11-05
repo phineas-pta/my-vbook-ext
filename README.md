@@ -1,5 +1,7 @@
 ![](https://img.shields.io/badge/vbook-extensions-black?style=for-the-badge&logo=readme&logoColor=white&labelColor=3166B0)
 ![](https://img.shields.io/badge/hosted%20by-localhost-brightgreen?style=for-the-badge&logo=serverless)
+![](https://img.shields.io/badge/quality-trust_me_bro-DB1?style=for-the-badge)
+![](https://img.shields.io/badge/works_on-my_machine-3DDC84?style=for-the-badge)
 
 # 1 số extensions cá nhân dùng cho app đọc sách vBook
 
