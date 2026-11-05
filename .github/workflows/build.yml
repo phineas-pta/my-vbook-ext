@@ -15,8 +15,8 @@ jobs:
       - uses: actions/checkout@v7
       - run: |
           for folder in tts-openai chat-openai; do
-            cd ${folder}; zip -r "../${folder}.zip" plugin.json icon.png src/; cd -
-          end
+            (cd "${folder}" && zip -r "../${folder}.zip" plugin.json icon.png src/)
+          done
       - uses: softprops/action-gh-release@v3
         with:
           files: \*.zip
