@@ -5,7 +5,10 @@
 
 # 1 số extensions cá nhân dùng cho app đọc sách vBook
 
-vào mục Releases để tải file zip về cài vBook
+cách cài đặt extensions:
+- nguồn tự động:<br/>
+https://raw.githubusercontent.com/phineas-pta/my-vbook-ext/refs/heads/main/plugins_list.json
+- thủ công: vào mục Releases để tải file zip về cài vBook
 
 ## nghe đọc truyện (TTS) = OpenAI-compatible API endpoints
 
@@ -16,7 +19,7 @@ ng dùng cần phải nhập 3 settings:
 - API key
 - TTS model
 
-👉👉👉 [hướng dẫn setup chạy local trên pc](tts-openai/README.md) 👈👈👈
+👉 [hướng dẫn setup chạy local trên pc](tts-openai/README.md) 👈
 
 ## trợ lý (chatbot) = OpenAI-compatible API endpoints
 
@@ -29,7 +32,7 @@ ng dùng cần phải nhập 3 settings:
 - API key
 - Assistant model
 
-👉👉👉 [hướng dẫn setup chạy local trên pc](chat-openai/README.md) 👈👈👈
+👉 [sơ lược về chạy local trên pc](chat-openai/README.md) 👈
 
 dịch = OpenAI-compatible API endpoints: 👉 https://github.com/Moleys/vbook-ext/tree/main/openai-compatible
 
@@ -50,7 +53,10 @@ hướng dẫn viết extensions + hàng mẫu:
 - Muse: `https://api.meta.ai/v1`
 - GLM: `https://api.z.ai/api/paas/v4`
 - Kimi: `https://api.moonshot.ai/v1`
+- MiniMax: `https://api.minimax.io/v1`
+- MiMo: `https://api.xiaomimimo.com/v1`
 - Mistral: `https://api.mistral.ai/v1`
+- nividia nim: `https://integrate.api.nvidia.com/v1`
 
 nguồn icon copy từ:
 - https://cdn.openai.com/brand/openai-logos.zip

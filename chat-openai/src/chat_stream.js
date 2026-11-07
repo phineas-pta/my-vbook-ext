@@ -7,7 +7,8 @@
 function execute(messagesJson, selectedModel) {
 	let messages_array = JSON.parse(messagesJson);
 	let res = send_req(messages_array, selectedModel);
-	if (!res.ok) return Response.error("error in chat_stream.js: HTTP " + res.status); // TODO: also check for subsequent call
+	if (!res.ok) return Response.error("error in chat_stream.js: HTTP " + res.status);
+	// TODO: also check for subsequent requests
 
 	let tools = stream_resp(res);
 	while (tools.length > 0) {
@@ -58,6 +59,7 @@ function send_req(messages, model) {
 		body: JSON.stringify({
 			model: model || OPENAI_API_MODEL,
 			messages: messages,
+			verbosity: OPENAI_API_verbosity,
 			reasoning_effort: OPENAI_API_reasoning_effort,
 			temperature: parseFloat(OPENAI_API_temperature),
 			top_p: parseFloat(OPENAI_API_top_p),

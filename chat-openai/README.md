@@ -1,4 +1,4 @@
-# hướng dẫn setup chạy local trên pc
+# sơ lược về chạy local trên pc
 
 lấy ip của pc trong mạng wifi nội bộ: `arp -a`<br />
 (trên linux/mac có thể cần phải cài thêm kiểu ví dụ `apt-get install net-tools`)

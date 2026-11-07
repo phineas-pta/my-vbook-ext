@@ -10,7 +10,7 @@
 			"name": "OpenAI-like TTS",
 			"author": "phineas-pta",
 			"version": 2,
-			"description": "OpenAI TTS (support selfhost)",
+			"description": "(support selfhost)",
 			"source": "https://example.com",
 			"type": "tts",
 			"locale": "global"
@@ -21,7 +21,7 @@
 			"name": "OpenAI-like assistant",
 			"author": "phineas-pta",
 			"version": 2,
-			"description": "OpenAI assistant (support selfhost)",
+			"description": "(support selfhost)",
 			"source": "https://example.com",
 			"type": "ai",
 			"locale": "global"

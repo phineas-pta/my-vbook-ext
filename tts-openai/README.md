@@ -220,6 +220,8 @@ sửa file `config.json` thêm đường dẫn tới 2 file `speaker.emb.txt` v�
 
 tải file gguf: https://huggingface.co/doof-ferb/KhanhTTS-OmniVoice-GGUF/blob/main/KhanhTTS-OmniVoice-q8_0.gguf
 
+lỗi ko đọc dc chữ số, cần viết function để normalizer
+
 chuẩn bị file audio để clone voice
 
 ví dụ pc có gpu nvidia clone voice Nguyễn Ngọc Ngạn
@@ -310,5 +312,7 @@ trong vBook, phần cài đặt của extension:
 - điền gì vào api key cũng dc
 - điền tên model theo `id` trong file `config.json` ở trên
 
-nếu audio quá chậm thì giảm độ dài tối đa xuống dưới 300
+nếu audio quá chậm thì giảm độ dài tối đa xuống dưới 100
 ![](https://github.com/user-attachments/assets/f1378f47-f7a9-4559-8d82-4afda9a245d1)
+
+giải pháp tốt hơn là đợi vBook hỗ trợ streaming cho tts
