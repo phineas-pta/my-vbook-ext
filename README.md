@@ -43,7 +43,14 @@ hướng dẫn viết extensions + hàng mẫu:
 - https://github.com/dat-bi/ext-vbook/tree/main/vbook-tool/context
 - dùng Rhino JS engine nên chỉ viết pure JS ko dc cài thêm node packages
 
-1 số OpenAI-compatible API endpoints (chỉ có selfhost là free + uncensored)
+<details>
+  
+<summary>1 vài OpenAI-compatible API endpoints</summary>
+
+đương nhiên là phải nạp tiền 🤑 chỉ có selfhost là vừa free vừa uncensored
+
+- OpenRouter: `https://openrouter.ai/api/v1` (ít bị kiểm duyệt)
+- Venice: `https://api.venice.ai/api/v1` (uncensored)
 - OpenAI: `https://api.openai.com/v1`
 - Claude: `https://api.anthropic.com/v1`
 - Gemini: `https://generativelanguage.googleapis.com/v1beta/openai`
@@ -54,9 +61,12 @@ hướng dẫn viết extensions + hàng mẫu:
 - GLM: `https://api.z.ai/api/paas/v4`
 - Kimi: `https://api.moonshot.ai/v1`
 - MiniMax: `https://api.minimax.io/v1`
+- Hy: `https://tokenhub-intl.tencentcloudmaas.com/v1`
 - MiMo: `https://api.xiaomimimo.com/v1`
 - Mistral: `https://api.mistral.ai/v1`
 - nividia nim: `https://integrate.api.nvidia.com/v1`
+
+</details>
 
 nguồn icon copy từ:
 - https://cdn.openai.com/brand/openai-logos.zip
