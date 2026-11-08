@@ -15,7 +15,7 @@ chuẩn bị model và khởi tạo file `config.json`:
 
 tải file gguf: https://huggingface.co/pnnbao-ump/VieNeu-TTS-v3-Turbo/blob/main/gguf/vieneu-v3-turbo-q8_0.gguf
 
-tải thêm folder [`vieneu_voices`](vieneu_voices.zip) (nguồn: lấy từ cùng repo huggingface ở trên)
+tải thêm folder 25 giọng mặc định [`vieneu_voices`](vieneu_voices.zip) (nguồn: lấy từ cùng repo huggingface ở trên)
 
 tải thêm `sea-g2p`:
 - link: https://github.com/pnnbao97/sea-g2p/releases/latest
@@ -29,6 +29,7 @@ ví dụ pc ko có gpu
 	"host": "0.0.0.0",
 	"port": 5000,
 	"backend": "cpu",
+	"threads": 4,
 	"max_loaded_models": 1,
 	"cors_origins": "*",
 	"models": [
@@ -206,8 +207,8 @@ from vieneu._v3_turbo_engine import VieNeuTTSv3Turbo
 tts = VieNeuTTSv3Turbo()
 
 spk, codes = tts.prepare_reference("rZnygcVV3vI.wav") # file audio cần clone voice
-np.savetxt("speaker.emb.txt", spk, fmt="%.8f", newline=",", encoding="utf-8")
-np.savetxt("ref_codes.txt", codes, fmt="%d", encoding="utf-8")
+np.savetxt("speaker.emb.txt", spk, encoding="utf-8", fmt="%.8f", newline=",")
+np.savetxt("ref_codes.txt", codes, encoding="utf-8", fmt="%d")
 ```
 
 sửa file `config.json` thêm đường dẫn tới 2 file `speaker.emb.txt` và `ref_codes.txt`
@@ -231,6 +232,7 @@ ví dụ pc có gpu nvidia clone voice Nguyễn Ngọc Ngạn
 	"host": "0.0.0.0",
 	"port": 5000,
 	"backend": "cuda",
+	"threads": 1,
 	"max_loaded_models": 1,
 	"cors_origins": "*",
 	"models": [
@@ -283,6 +285,7 @@ ví dụ pc ko có gpu chạy giọng Thanh Phương Viettel
 	"host": "0.0.0.0",
 	"port": 5000,
 	"backend": "cpu",
+	"threads": 4,
 	"max_loaded_models": 1,
 	"cors_origins": "*",
 	"models": [
@@ -311,6 +314,8 @@ trong vBook, phần cài đặt của extension:
 - điền vào mục url theo dạng: `http://192.168.█.█:5000/v1`
 - điền gì vào api key cũng dc
 - điền tên model theo `id` trong file `config.json` ở trên
+
+`audio.cpp` chưa hỗ trợ api key nên vụ bảo mật ae phải tự xử lí
 
 nếu audio quá chậm thì giảm độ dài tối đa xuống dưới 100
 ![](https://github.com/user-attachments/assets/f1378f47-f7a9-4559-8d82-4afda9a245d1)
