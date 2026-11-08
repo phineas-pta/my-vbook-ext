@@ -31,7 +31,8 @@
 			"default": "gpt-6.1-sol"
 		},
 		"OPENAI_API_verbosity": {
-			"title": "Verbosity of the model’s response: lower values = more concise",
+			"title": "Verbosity of the model’s response",
+			"subtitle": "lower values = more concise",
 			"mode": "select",
 			"format": "single",
 			"values": ["low", "medium", "high"],
