@@ -1,12 +1,12 @@
 /**
  * A.I. assistant request
  * @param {string} messagesJson
- * @param {string} selectedModel
+ * @param {string} selectedModel won’t be used
  * @returns {undefined} nothing returned because text is streamed
  */
 function execute(messagesJson, selectedModel) {
 	let messages_array = JSON.parse(messagesJson);
-	let res = send_req(messages_array, selectedModel);
+	let res = send_req(messages_array, OPENAI_API_MODEL);
 	if (!res.ok) return Response.error("error in chat_stream.js: HTTP " + res.status);
 	// TODO: also check for subsequent requests
 
@@ -25,7 +25,7 @@ function execute(messagesJson, selectedModel) {
 			});
 		}
 
-		tools = stream_resp(send_req(messages_array, selectedModel));
+		tools = stream_resp(send_req(messages_array, OPENAI_API_MODEL));
 	}
 
 	return Response.success("");
@@ -57,7 +57,7 @@ function send_req(messages, model) {
 			"Authorization": "Bearer " + OPENAI_API_KEY,
 		},
 		body: JSON.stringify({
-			model: model || OPENAI_API_MODEL,
+			model: model,
 			messages: messages,
 			verbosity: OPENAI_API_verbosity,
 			reasoning_effort: OPENAI_API_reasoning_effort,
