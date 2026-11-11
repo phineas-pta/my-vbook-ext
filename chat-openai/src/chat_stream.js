@@ -35,7 +35,6 @@ function execute(messagesJson, selectedModel) {
  * send 1 request
  * @see https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create
  * @param {{role: String, content: String}[]} messages
- * @param {string} model
  * @returns {Response} not Promise because of runtime
  */
 function send_req(messages) {

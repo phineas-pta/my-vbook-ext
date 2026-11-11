@@ -9,6 +9,7 @@
 		"locale": "global"
 	},
 	"script": {
+		"config": "config.js",
 		"chatStream": "chat_stream.js"
 	},
 	"config": {
