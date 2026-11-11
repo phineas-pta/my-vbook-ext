@@ -2,13 +2,14 @@
 	"metadata": {
 		"name": "OpenAI-like TTS",
 		"author": "phineas-pta",
-		"version": 2,
+		"version": 3,
 		"description": "(support selfhost)",
 		"source": "https://example.com",
 		"type": "tts",
 		"locale": "global"
 	},
 	"script": {
+		"config": "config.js",
 		"voice": "voice.js",
 		"tts": "tts.js"
 	},
@@ -33,6 +34,12 @@
 			"mode": "input",
 			"format": "text",
 			"default": "gpt-realtime-2.1-mini"
+		},
+		"OPENAI_API_show_advanced": {
+			"title": "ONLY FOR ADVANCED USERS who selfhost audio.cpp and know their model capabilities",
+			"subtitle": "toggle the button, exit and comeback to activate; change the values you want, UNCHANGED VALUES WILL BE IGNORED",
+			"mode": "toggle",
+			"default": "false"
 		}
 	}
 }

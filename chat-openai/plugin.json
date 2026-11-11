@@ -2,7 +2,7 @@
 	"metadata": {
 		"name": "OpenAI-like assistant",
 		"author": "phineas-pta",
-		"version": 2,
+		"version": 3,
 		"description": "(support selfhost)",
 		"source": "https://example.com",
 		"type": "ai",
@@ -30,48 +30,11 @@
 			"format": "text",
 			"default": "gpt-6.1-sol"
 		},
-		"OPENAI_API_verbosity": {
-			"title": "Verbosity of the model’s response",
-			"subtitle": "lower values = more concise",
-			"mode": "select",
-			"format": "single",
-			"values": ["low", "medium", "high"],
-			"default": "medium"
-		},
-		"OPENAI_API_reasoning_effort": {
-			"title": "Reasoning effort",
-			"mode": "select",
-			"format": "single",
-			"values": ["none", "minimal", "low", "medium", "high", "xhigh", "max"],
-			"default": "medium"
-		},
-		"OPENAI_API_temperature": {
-			"title": "Sampling: temperature",
-			"subtitle": "0.0 → 2.0: lower = more deterministic, higher = more random",
-			"mode": "input",
-			"format": "number",
-			"default": "1.0"
-		},
-		"OPENAI_API_top_p": {
-			"title": "Sampling: top P",
-			"subtitle": "0.0 → 1.0: for example 0.1 = output sampled only from the top 10% probability tokens",
-			"mode": "input",
-			"format": "number",
-			"default": "1.0"
-		},
-		"OPENAI_API_frequency_penalty": {
-			"title": "Frequency penalty",
-			"subtitle": "-2.0 → 2.0: higher = prevent repetition = reduction if the token has appeared has appeared multiple times",
-			"mode": "input",
-			"format": "number",
-			"default": "0.0"
-		},
-		"OPENAI_API_presence_penalty": {
-			"title": "Presence penalty",
-			"subtitle": "-2.0 → 2.0: higher = newer things = reduction if the token has appeared at least once before",
-			"mode": "input",
-			"format": "number",
-			"default": "0.0"
+		"OPENAI_API_show_advanced": {
+			"title": "ONLY FOR ADVANCED USERS who know OpenAI API specifications",
+			"subtitle": "toggle the button, exit and comeback to activate; change the values you want, UNCHANGED VALUES WILL BE IGNORED",
+			"mode": "toggle",
+			"default": "false"
 		}
 	}
 }

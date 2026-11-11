@@ -1,12 +1,12 @@
 /**
  * A.I. assistant request
  * @param {string} messagesJson
- * @param {string} selectedModel won’t be used
+ * @param {string} selectedModel ignored, won’t be used
  * @returns {undefined} nothing returned because text is streamed
  */
 function execute(messagesJson, selectedModel) {
 	let messages_array = JSON.parse(messagesJson);
-	let res = send_req(messages_array, OPENAI_API_MODEL);
+	let res = send_req(messages_array);
 	if (!res.ok) return Response.error("error in chat_stream.js: HTTP " + res.status);
 	// TODO: also check for subsequent requests
 
@@ -25,7 +25,7 @@ function execute(messagesJson, selectedModel) {
 			});
 		}
 
-		tools = stream_resp(send_req(messages_array, OPENAI_API_MODEL));
+		tools = stream_resp(send_req(messages_array));
 	}
 
 	return Response.success("");
@@ -38,8 +38,9 @@ function execute(messagesJson, selectedModel) {
  * @param {string} model
  * @returns {Response} not Promise because of runtime
  */
-function send_req(messages, model) {
-	const TOOLS_LIST = ai.getToolList().map((x) => ({
+function send_req(messages) {
+	const advanced_options = get_advanced_options();
+	const tools_list = ai.getToolList().map((x) => ({
 		type: "function",
 		function: {
 			name: x.name,
@@ -49,6 +50,14 @@ function send_req(messages, model) {
 		},
 	}));
 
+	let req_body = {
+		model: OPENAI_API_MODEL,
+		messages: messages,
+		stream: true,
+	};
+	for (let [key, value] of Object.entries(advanced_options)) req_body[key] = value;
+	if (Object.keys(tools_list).length > 0) req_body.tools = tools_list;
+
 	return fetch(OPENAI_API_URL + "/chat/completions", {
 		method: "POST",
 		stream: true,
@@ -56,18 +65,7 @@ function send_req(messages, model) {
 			"Content-Type": "application/json",
 			"Authorization": "Bearer " + OPENAI_API_KEY,
 		},
-		body: JSON.stringify({
-			model: model,
-			messages: messages,
-			verbosity: OPENAI_API_verbosity,
-			reasoning_effort: OPENAI_API_reasoning_effort,
-			temperature: parseFloat(OPENAI_API_temperature),
-			top_p: parseFloat(OPENAI_API_top_p),
-			frequency_penalty: parseFloat(OPENAI_API_frequency_penalty),
-			presence_penalty: parseFloat(OPENAI_API_presence_penalty),
-			tools: TOOLS_LIST,
-			stream: true,
-		}),
+		body: JSON.stringify(req_body),
 		timeout: 300000,
 	});
 }
@@ -121,4 +119,26 @@ function stream_resp(resp) {
 		}
 	}
 	return Object.values(tool_calls_map);
+}
+
+/**
+ * advanced options for OpenAI API
+ * @returns {object[]}
+ */
+function get_advanced_options() {
+	let res = {};
+	for (let i of ["temperature", "top_p", "frequency_penalty", "presence_penalty"]) {
+		if (localConfig.getItem(i, "-1") !== "-1") {
+			let tmp = parseFloat(localConfig.getItem(i));
+			if (!isNaN(tmp) && isFinite(tmp) && tmp > 0) {
+				res[i] = tmp;
+			}
+		}
+	}
+	for (let i of ["verbosity", "reasoning_effort"]) {
+		if (localConfig.getItem(i, "NULL") !== "NULL") {
+			res[i] = localConfig.getItem(i);
+		}
+	}
+	return res;
 }
