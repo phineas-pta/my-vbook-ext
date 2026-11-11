@@ -317,6 +317,8 @@ trong vBook, phần cài đặt của extension:
 
 `audio.cpp` chưa hỗ trợ api key nên vụ bảo mật ae phải tự xử lí
 
+`audio.cpp` còn hỗ trợ rất nhiều model đa ngôn ngữ khác, xem thêm: https://github.com/0xShug0/audio.cpp/tree/main/docs/models
+
 nếu audio quá chậm thì giảm độ dài tối đa xuống dưới 100
 ![](https://github.com/user-attachments/assets/f1378f47-f7a9-4559-8d82-4afda9a245d1)
 

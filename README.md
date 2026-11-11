@@ -21,6 +21,10 @@ ng dùng cần phải nhập 3 settings:
 
 👉 [hướng dẫn setup chạy local trên pc](tts-openai/README.md) 👈
 
+TODO:
+- [ ] tinh chỉnh code từ NghiTTS để chạy dc trên Rhino JS, bị lỗi rất khó chịu: https://github.com/nghimestudio/nghitts/blob/main/src/utils/vietnamese-processor.js
+- [ ] tìm kiếm nguyên nhân lỗi file gguf của NghiTTS (nền PiperTTS)
+
 ## trợ lý (chatbot) = OpenAI-compatible API endpoints
 
 hàng gốc: https://github.com/Darkrai9x/vbook-extensions/tree/master/chatgpt-ai 👈 chỉ dùng dc với OpenAI
@@ -34,6 +38,9 @@ ng dùng cần phải nhập 3 settings:
 
 👉 [sơ lược về chạy local trên pc](chat-openai/README.md) 👈
 
+TODO:
+- [ ] tìm kiếm nguyên nhân lỗi khi dùng tools calling với `llama.cpp` (lúc lỗi lúc ko)
+
 dịch = OpenAI-compatible API endpoints: 👉 https://github.com/Moleys/vbook-ext/tree/main/openai-compatible
 
 # ghi chú + credits
@@ -41,10 +48,13 @@ dịch = OpenAI-compatible API endpoints: 👉 https://github.com/Moleys/vbook-e
 hướng dẫn viết extensions + hàng mẫu:
 - https://github.com/Darkrai9x/vbook-extensions/blob/master/extension-api.md
 - https://github.com/dat-bi/ext-vbook/tree/main/vbook-tool/context
-- dùng Rhino JS engine nên chỉ viết pure JS ko dc cài thêm node packages
+- dùng Rhino JS engine nên
+  - chỉ viết pure JS ko dc cài thêm node packages
+  - nhiều lúc dùng `const` lại gây lỗi, bắt buộc phải dùng `let` hoặc `var`
+- khi lên version mới, cần update cả `plugin.json` và `plugins_list.json`
 
 <details>
-  
+
 <summary>1 vài OpenAI-compatible API endpoints</summary>
 
 đương nhiên là phải nạp tiền 🤑 chỉ có selfhost là vừa free vừa uncensored
